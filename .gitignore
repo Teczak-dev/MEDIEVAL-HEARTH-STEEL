@@ -1,32 +1,72 @@
-# Prerequisites
-*.d
+# Operating system files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
 
-# Compiled Object files
+# IDEs and editor metadata
+.idea/
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/settings.json
+*.suo
+*.user
+*.userossc
+*.sln.docstates
+
+# Premake-generated files and downloaded dependencies
+build/build_files/
+build/compile_commands.json
+build/external/
+build/ecc/
+build/premake5
+build/premake5.exe
+build/premake5.osx
+
+# Build output
+bin/
+build-local/
+obj/
+*.d
 *.slo
 *.lo
 *.o
 *.obj
-
-# Precompiled Headers
 *.gch
 *.pch
-
-# Compiled Dynamic libraries
 *.so
 *.dylib
 *.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
 *.lai
 *.la
 *.a
 *.lib
-
-# Executables
 *.exe
 *.out
-*.app
+*.app/
+*.pdb
+*.ilk
+*.exp
+*.iobj
+*.ipdb
+*.tlog/
+
+# CMake and other local build directories
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+
+# Logs and local configuration
+*.log
+*.tmp
+*.swp
+*.swo
+.env
+.env.*
+!.env.example

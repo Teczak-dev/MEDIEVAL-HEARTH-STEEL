@@ -1,21 +1,45 @@
-MIT License
+MEDIEVAL HEARTH & STEEL — NON-COMMERCIAL LICENSE
 
 Copyright (c) 2026 Mikołaj Sobczak
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+These terms apply to the MEDIEVAL HEARTH & STEEL project and its original
+components, unless a particular file or component has its own license.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. Permitted use
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+You may, free of charge:
+
+* copy and download the project;
+* run the project;
+* modify the project and create derivative works;
+* share the original project and your own modified versions.
+
+2. Restrictions
+
+You may not sell the project, its copies, builds, modified versions, or
+derivative works. You may not use the project or its components in a commercial
+product or service without the author's prior written permission.
+
+3. Attribution
+
+Whenever you share the project, its copies, builds, or modified versions, you
+must clearly credit the author:
+
+    MEDIEVAL HEARTH & STEEL — author: Mikołaj Sobczak
+
+You must retain this license and the attribution notice.
+
+4. External components
+
+External libraries, tools, fonts, graphics, and other materials may be covered
+by separate licenses. Their use must comply with those licenses. This license
+does not change the rights applicable to those components.
+
+5. Disclaimer of warranty
+
+The project is provided "AS IS", without warranty of any kind, express or
+implied. The author is not liable for damages resulting from the use of the
+project.
+
+To request an exception to the restrictions above, contact the author,
+Mikołaj Sobczak, and obtain written permission.
