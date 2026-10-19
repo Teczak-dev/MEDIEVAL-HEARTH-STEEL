@@ -1,0 +1,11 @@
+{
+  "attack": ["SPACE", "MOUSE_LEFT"],
+  "dodge": ["LEFT_ALT"],
+  "interact": ["E"],
+  "dialogue_next": ["SPACE", "ENTER", "MOUSE_LEFT"],
+  "move_up": ["W", "UP"],
+  "move_down": ["S", "DOWN"],
+  "move_left": ["A", "LEFT"],
+  "move_right": ["D", "RIGHT"],
+  "sprint": ["LEFT_SHIFT", "RIGHT_SHIFT"]
+}
