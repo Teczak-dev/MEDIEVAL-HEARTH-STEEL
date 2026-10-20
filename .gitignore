@@ -63,6 +63,12 @@ cmake_install.cmake
 Makefile
 compile_commands.json
 
+# Premake-generated Visual Studio projects
+/*.sln
+/*.vcxproj
+/*.vcxproj.filters
+/*.vcxproj.user
+
 # Logs and local configuration
 *.log
 *.tmp

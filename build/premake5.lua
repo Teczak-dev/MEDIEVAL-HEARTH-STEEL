@@ -243,7 +243,9 @@ if (downloadRaylib) then
 
     project "raylib"
         kind "StaticLib"
-        disablewarnings { "tautological-compare" }
+        filter { "not action:vs*" }
+            disablewarnings { "tautological-compare" }
+        filter {}
     
         platform_defines()
 
