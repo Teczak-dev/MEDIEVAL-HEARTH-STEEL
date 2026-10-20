@@ -42,8 +42,8 @@ endef
 
 ifeq ($(config),debug_x64)
 TARGETDIR = bin/Debug
-TARGET = $(TARGETDIR)/TestGame
-OBJDIR = obj/x64/Debug/TestGame
+TARGET = $(TARGETDIR)/MedievalHearthSteel
+OBJDIR = obj/x64/Debug/MedievalHearthSteel
 DEFINES += -DDEBUG -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -Wshadow -g -std=c17 -Wno-deprecated-declarations
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -Wshadow -g -std=c++20 -Wno-deprecated-declarations
@@ -53,8 +53,8 @@ ALL_LDFLAGS += $(LDFLAGS) -m64
 
 else ifeq ($(config),debug_x86)
 TARGETDIR = bin/Debug
-TARGET = $(TARGETDIR)/TestGame
-OBJDIR = obj/x86/Debug/TestGame
+TARGET = $(TARGETDIR)/MedievalHearthSteel
+OBJDIR = obj/x86/Debug/MedievalHearthSteel
 DEFINES += -DDEBUG -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m32 -Wshadow -g -std=c17 -Wno-deprecated-declarations
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m32 -Wshadow -g -std=c++20 -Wno-deprecated-declarations
@@ -64,8 +64,8 @@ ALL_LDFLAGS += $(LDFLAGS) -m32
 
 else ifeq ($(config),debug_arm64)
 TARGETDIR = bin/Debug
-TARGET = $(TARGETDIR)/TestGame
-OBJDIR = obj/ARM64/Debug/TestGame
+TARGET = $(TARGETDIR)/MedievalHearthSteel
+OBJDIR = obj/ARM64/Debug/MedievalHearthSteel
 DEFINES += -DDEBUG -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -Wshadow -g -std=c17 -Wno-deprecated-declarations
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -Wshadow -g -std=c++20 -Wno-deprecated-declarations
@@ -75,8 +75,8 @@ ALL_LDFLAGS += $(LDFLAGS)
 
 else ifeq ($(config),release_x64)
 TARGETDIR = bin/Release
-TARGET = $(TARGETDIR)/TestGame
-OBJDIR = obj/x64/Release/TestGame
+TARGET = $(TARGETDIR)/MedievalHearthSteel
+OBJDIR = obj/x64/Release/MedievalHearthSteel
 DEFINES += -DNDEBUG -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -Wshadow -O2 -std=c17 -Wno-deprecated-declarations
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -Wshadow -O2 -std=c++20 -Wno-deprecated-declarations
@@ -86,8 +86,8 @@ ALL_LDFLAGS += $(LDFLAGS) -m64
 
 else ifeq ($(config),release_x86)
 TARGETDIR = bin/Release
-TARGET = $(TARGETDIR)/TestGame
-OBJDIR = obj/x86/Release/TestGame
+TARGET = $(TARGETDIR)/MedievalHearthSteel
+OBJDIR = obj/x86/Release/MedievalHearthSteel
 DEFINES += -DNDEBUG -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m32 -Wshadow -O2 -std=c17 -Wno-deprecated-declarations
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m32 -Wshadow -O2 -std=c++20 -Wno-deprecated-declarations
@@ -97,8 +97,8 @@ ALL_LDFLAGS += $(LDFLAGS) -m32
 
 else ifeq ($(config),release_arm64)
 TARGETDIR = bin/Release
-TARGET = $(TARGETDIR)/TestGame
-OBJDIR = obj/ARM64/Release/TestGame
+TARGET = $(TARGETDIR)/MedievalHearthSteel
+OBJDIR = obj/ARM64/Release/MedievalHearthSteel
 DEFINES += -DNDEBUG -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -Wshadow -O2 -std=c17 -Wno-deprecated-declarations
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -Wshadow -O2 -std=c++20 -Wno-deprecated-declarations
@@ -139,7 +139,7 @@ all: $(TARGET)
 
 $(TARGET): $(GENERATED) $(OBJECTS) $(LDDEPS) | $(TARGETDIR)
 	$(PRELINKCMDS)
-	@echo Linking TestGame
+	@echo Linking MedievalHearthSteel
 	$(SILENT) $(LINKCMD)
 	$(POSTBUILDCMDS)
 
@@ -160,7 +160,7 @@ else
 endif
 
 clean:
-	@echo Cleaning TestGame
+	@echo Cleaning MedievalHearthSteel
 ifeq (posix,$(SHELLTYPE))
 	$(SILENT) rm -f  $(TARGET)
 	$(SILENT) rm -rf $(GENERATED)

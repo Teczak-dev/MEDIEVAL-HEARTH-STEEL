@@ -119,12 +119,10 @@ end
 downloadRaylib = true
 raylib_dir = "external/raylib-master"
 
-workspaceName = 'MyGame'
-baseName = path.getbasename(path.getdirectory(os.getcwd()));
-
---if (baseName ~= 'raylib-quickstart') then
-    workspaceName = baseName
---end
+-- Keep the generated project and executable name independent from the local
+-- folder name, which may differ between machines and contain shell-sensitive
+-- characters such as spaces or '&'.
+workspaceName = "MedievalHearthSteel"
 
 if (os.isdir('build_files') == false) then
     os.mkdir('build_files')

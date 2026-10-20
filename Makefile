@@ -9,43 +9,43 @@ ifndef verbose
 endif
 
 ifeq ($(config),debug_x64)
-  TestGame_config = debug_x64
+  MedievalHearthSteel_config = debug_x64
   raylib_config = debug_x64
 
 else ifeq ($(config),debug_x86)
-  TestGame_config = debug_x86
+  MedievalHearthSteel_config = debug_x86
   raylib_config = debug_x86
 
 else ifeq ($(config),debug_arm64)
-  TestGame_config = debug_arm64
+  MedievalHearthSteel_config = debug_arm64
   raylib_config = debug_arm64
 
 else ifeq ($(config),release_x64)
-  TestGame_config = release_x64
+  MedievalHearthSteel_config = release_x64
   raylib_config = release_x64
 
 else ifeq ($(config),release_x86)
-  TestGame_config = release_x86
+  MedievalHearthSteel_config = release_x86
   raylib_config = release_x86
 
 else ifeq ($(config),release_arm64)
-  TestGame_config = release_arm64
+  MedievalHearthSteel_config = release_arm64
   raylib_config = release_arm64
 
 else
   $(error "invalid configuration $(config)")
 endif
 
-PROJECTS := TestGame raylib
+PROJECTS := MedievalHearthSteel raylib
 
 .PHONY: all clean help $(PROJECTS) 
 
 all: $(PROJECTS)
 
-TestGame: raylib
-ifneq (,$(TestGame_config))
-	@echo "==== Building TestGame ($(TestGame_config)) ===="
-	@${MAKE} --no-print-directory -C . -f TestGame.make config=$(TestGame_config)
+MedievalHearthSteel: raylib
+ifneq (,$(MedievalHearthSteel_config))
+	@echo "==== Building MedievalHearthSteel ($(MedievalHearthSteel_config)) ===="
+	@${MAKE} --no-print-directory -C . -f MedievalHearthSteel.make config=$(MedievalHearthSteel_config)
 endif
 
 raylib:
@@ -55,7 +55,7 @@ ifneq (,$(raylib_config))
 endif
 
 clean:
-	@${MAKE} --no-print-directory -C . -f TestGame.make clean
+	@${MAKE} --no-print-directory -C . -f MedievalHearthSteel.make clean
 	@${MAKE} --no-print-directory -C . -f raylib.make clean
 
 help:
@@ -72,7 +72,7 @@ help:
 	@echo "TARGETS:"
 	@echo "   all (default)"
 	@echo "   clean"
-	@echo "   TestGame"
+	@echo "   MedievalHearthSteel"
 	@echo "   raylib"
 	@echo ""
 	@echo "For more information, see https://github.com/premake/premake-core/wiki"

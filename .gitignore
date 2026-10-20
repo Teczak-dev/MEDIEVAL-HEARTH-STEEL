@@ -46,6 +46,7 @@ obj/
 *.a
 *.lib
 *.exe
+!build/premake5.exe
 *.out
 *.app/
 *.pdb

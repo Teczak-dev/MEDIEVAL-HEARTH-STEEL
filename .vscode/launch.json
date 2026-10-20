@@ -22,15 +22,15 @@
               }
             ],
             "windows": {
-              "program": "${workspaceFolder}/bin/Debug/${workspaceFolderBasename}.exe",
+              "program": "${workspaceFolder}/bin/Debug/MedievalHearthSteel.exe",
               "miDebuggerPath": "gdb.exe"
             },
             "osx": {
-              "program": "${workspaceFolder}/bin/Debug/${workspaceFolderBasename}",
+              "program": "${workspaceFolder}/bin/Debug/MedievalHearthSteel",
               "MIMode": "lldb"
             },
             "linux": {
-              "program": "${workspaceFolder}/bin/Debug/${workspaceFolderBasename}",
+              "program": "${workspaceFolder}/bin/Debug/MedievalHearthSteel",
               "miDebuggerPath": "/usr/bin/gdb",
             },
             "preLaunchTask": "build debug"
@@ -53,15 +53,15 @@
               }
             ],
             "windows": {
-              "program": "${workspaceFolder}/bin/Debug/${workspaceFolderBasename}.exe",
+              "program": "${workspaceFolder}/bin/Debug/MedievalHearthSteel.exe",
               "miDebuggerPath": "gdb.exe"
             },
             "osx": {
-              "program": "${workspaceFolder}/bin/Debug/${workspaceFolderBasename}",
+              "program": "${workspaceFolder}/bin/Debug/MedievalHearthSteel",
               "MIMode": "lldb"
             },
             "linux": {
-              "program": "${workspaceFolder}/bin/Debug/${workspaceFolderBasename}",
+              "program": "${workspaceFolder}/bin/Debug/MedievalHearthSteel",
               "miDebuggerPath": "/usr/bin/gdb",
             },
             "preLaunchTask": "build debug no premake"
@@ -77,15 +77,15 @@
             "externalConsole": false,
             "MIMode": "gdb",
             "windows": {
-              "program": "${workspaceFolder}/bin/Release/${workspaceFolderBasename}.exe",
+              "program": "${workspaceFolder}/bin/Release/MedievalHearthSteel.exe",
               "miDebuggerPath": "gdb.exe"
             },
             "osx": {
-              "program": "${workspaceFolder}/bin/Release/${workspaceFolderBasename}",
+              "program": "${workspaceFolder}/bin/Release/MedievalHearthSteel",
               "MIMode": "lldb"
             },
             "linux": {
-              "program": "${workspaceFolder}/bin/Release/${workspaceFolderBasename}",
+              "program": "${workspaceFolder}/bin/Release/MedievalHearthSteel",
               "miDebuggerPath": "/usr/bin/gdb"
             },
             "preLaunchTask": "build release",
