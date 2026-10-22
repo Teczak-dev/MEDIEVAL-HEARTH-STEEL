@@ -5,7 +5,7 @@
 ![Raylib](https://img.shields.io/badge/raylib-powered-black)
 ![License](https://img.shields.io/badge/license-non--commercial-red)
 
-**MEDIEVAL HEARTH & STEEL** is a 2D game prototype built in C++20 using the
+**MEDIEVAL HEARTH & STEEL** is a 2D game prototype (Remake of [RPG CPP](https://github.com/Teczak-dev/RPG-CPP)) built in C++20 using the
 [raylib](https://www.raylib.com/) library. The project is in an early stage of
 development and serves as a foundation for building a medieval world, characters,
 and gameplay systems.

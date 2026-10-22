@@ -14,8 +14,8 @@ public:
   void SetPosition(Vector2 newPosition);
   float GetSpeed();
   void Draw();
-  void Update(float deltaTime, InputSystem &inpSys, int screenWidth,
-              int screenHeight, Damage &damage);
+  void Update(float deltaTime, InputSystem &inpSys, const int &screenWidth,
+              const int &screenHeight, Damage &damage);
   Health health;
   void TakeDamage(int damage);
 

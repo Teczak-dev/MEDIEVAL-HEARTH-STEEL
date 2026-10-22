@@ -36,37 +36,6 @@
             "preLaunchTask": "build debug"
           },
           {
-            "name": "Debug NoPremake",
-            "type": "cppdbg",
-            "request": "launch",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "gdb",
-            "setupCommands": [
-              {
-                "description": "Enable pretty-printing for gdb",
-                "text": "-enable-pretty-printing",
-                "ignoreFailures": false
-              }
-            ],
-            "windows": {
-              "program": "${workspaceFolder}/bin/Debug/MedievalHearthSteel.exe",
-              "miDebuggerPath": "gdb.exe"
-            },
-            "osx": {
-              "program": "${workspaceFolder}/bin/Debug/MedievalHearthSteel",
-              "MIMode": "lldb"
-            },
-            "linux": {
-              "program": "${workspaceFolder}/bin/Debug/MedievalHearthSteel",
-              "miDebuggerPath": "/usr/bin/gdb",
-            },
-            "preLaunchTask": "build debug no premake"
-          },
-          {
             "name": "Run Release",
             "type": "cppdbg",
             "request": "launch",

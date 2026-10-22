@@ -4,5 +4,5 @@
 
 class Damage {
 public:
-  void TakeDamage(float amount, DamageType type, Health &objectHealth);
+  void TakeDamage(int amount, DamageType type, Health &objectHealth);
 };

@@ -18,38 +18,12 @@
       "-Wno-deprecated-declarations",
       "-c",
       "-o",
-      "obj/x64/Debug/TestGame/resource_dir.o",
-      "src/resource_dir.h"
-    ],
-    "directory": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/",
-    "file": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/src/resource_dir.h",
-    "output": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/obj/x64/Debug/TestGame/resource_dir.o"
-  },
-  {
-    "arguments": [
-      "clang++",
-      "-MD",
-      "-MP",
-      "-DDEBUG",
-      "-DPLATFORM_DESKTOP",
-      "-DGRAPHICS_API_OPENGL_33",
-      "-Isrc",
-      "-Iinclude",
-      "-Iexternal",
-      "-Ibuild/external/raylib-master/src",
-      "-m64",
-      "-Wshadow",
-      "-g",
-      "-std=c++20",
-      "-Wno-deprecated-declarations",
-      "-c",
-      "-o",
-      "obj/x64/Debug/TestGame/Player.o",
+      "obj/x64/Debug/MedievalHearthSteel/Player.o",
       "src/Characters/Player.cpp"
     ],
-    "directory": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/",
-    "file": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/src/Characters/Player.cpp",
-    "output": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/obj/x64/Debug/TestGame/Player.o"
+    "directory": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/",
+    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/src/Characters/Player.cpp",
+    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/MedievalHearthSteel/Player.o"
   },
   {
     "arguments": [
@@ -70,12 +44,64 @@
       "-Wno-deprecated-declarations",
       "-c",
       "-o",
-      "obj/x64/Debug/TestGame/InputSystem.o",
+      "obj/x64/Debug/MedievalHearthSteel/Damage.o",
+      "src/Gameplay/Damage.cpp"
+    ],
+    "directory": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/",
+    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/src/Gameplay/Damage.cpp",
+    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/MedievalHearthSteel/Damage.o"
+  },
+  {
+    "arguments": [
+      "clang++",
+      "-MD",
+      "-MP",
+      "-DDEBUG",
+      "-DPLATFORM_DESKTOP",
+      "-DGRAPHICS_API_OPENGL_33",
+      "-Isrc",
+      "-Iinclude",
+      "-Iexternal",
+      "-Ibuild/external/raylib-master/src",
+      "-m64",
+      "-Wshadow",
+      "-g",
+      "-std=c++20",
+      "-Wno-deprecated-declarations",
+      "-c",
+      "-o",
+      "obj/x64/Debug/MedievalHearthSteel/Health.o",
+      "src/Gameplay/Health.cpp"
+    ],
+    "directory": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/",
+    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/src/Gameplay/Health.cpp",
+    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/MedievalHearthSteel/Health.o"
+  },
+  {
+    "arguments": [
+      "clang++",
+      "-MD",
+      "-MP",
+      "-DDEBUG",
+      "-DPLATFORM_DESKTOP",
+      "-DGRAPHICS_API_OPENGL_33",
+      "-Isrc",
+      "-Iinclude",
+      "-Iexternal",
+      "-Ibuild/external/raylib-master/src",
+      "-m64",
+      "-Wshadow",
+      "-g",
+      "-std=c++20",
+      "-Wno-deprecated-declarations",
+      "-c",
+      "-o",
+      "obj/x64/Debug/MedievalHearthSteel/InputSystem.o",
       "src/Systems/InputSystem.cpp"
     ],
-    "directory": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/",
-    "file": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/src/Systems/InputSystem.cpp",
-    "output": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/obj/x64/Debug/TestGame/InputSystem.o"
+    "directory": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/",
+    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/src/Systems/InputSystem.cpp",
+    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/MedievalHearthSteel/InputSystem.o"
   },
   {
     "arguments": [
@@ -96,38 +122,12 @@
       "-Wno-deprecated-declarations",
       "-c",
       "-o",
-      "obj/x64/Debug/TestGame/UserInterfaceSystem.o",
-      "src/Systems/UserInterfaceSystem.cpp"
-    ],
-    "directory": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/",
-    "file": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/src/Systems/UserInterfaceSystem.cpp",
-    "output": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/obj/x64/Debug/TestGame/UserInterfaceSystem.o"
-  },
-  {
-    "arguments": [
-      "clang++",
-      "-MD",
-      "-MP",
-      "-DDEBUG",
-      "-DPLATFORM_DESKTOP",
-      "-DGRAPHICS_API_OPENGL_33",
-      "-Isrc",
-      "-Iinclude",
-      "-Iexternal",
-      "-Ibuild/external/raylib-master/src",
-      "-m64",
-      "-Wshadow",
-      "-g",
-      "-std=c++20",
-      "-Wno-deprecated-declarations",
-      "-c",
-      "-o",
-      "obj/x64/Debug/TestGame/UIElements.o",
+      "obj/x64/Debug/MedievalHearthSteel/UIElements.o",
       "src/UI/UIElements.cpp"
     ],
-    "directory": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/",
-    "file": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/src/UI/UIElements.cpp",
-    "output": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/obj/x64/Debug/TestGame/UIElements.o"
+    "directory": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/",
+    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/src/UI/UIElements.cpp",
+    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/MedievalHearthSteel/UIElements.o"
   },
   {
     "arguments": [
@@ -148,12 +148,38 @@
       "-Wno-deprecated-declarations",
       "-c",
       "-o",
-      "obj/x64/Debug/TestGame/TestMap.o",
+      "obj/x64/Debug/MedievalHearthSteel/UserInterfaceSystem.o",
+      "src/UI/UserInterfaceSystem.cpp"
+    ],
+    "directory": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/",
+    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/src/UI/UserInterfaceSystem.cpp",
+    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/MedievalHearthSteel/UserInterfaceSystem.o"
+  },
+  {
+    "arguments": [
+      "clang++",
+      "-MD",
+      "-MP",
+      "-DDEBUG",
+      "-DPLATFORM_DESKTOP",
+      "-DGRAPHICS_API_OPENGL_33",
+      "-Isrc",
+      "-Iinclude",
+      "-Iexternal",
+      "-Ibuild/external/raylib-master/src",
+      "-m64",
+      "-Wshadow",
+      "-g",
+      "-std=c++20",
+      "-Wno-deprecated-declarations",
+      "-c",
+      "-o",
+      "obj/x64/Debug/MedievalHearthSteel/TestMap.o",
       "src/Worlds/TestMap.cpp"
     ],
-    "directory": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/",
-    "file": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/src/Worlds/TestMap.cpp",
-    "output": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/obj/x64/Debug/TestGame/TestMap.o"
+    "directory": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/",
+    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/src/Worlds/TestMap.cpp",
+    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/MedievalHearthSteel/TestMap.o"
   },
   {
     "arguments": [
@@ -174,12 +200,12 @@
       "-Wno-deprecated-declarations",
       "-c",
       "-o",
-      "obj/x64/Debug/TestGame/main.o",
+      "obj/x64/Debug/MedievalHearthSteel/main.o",
       "src/main.cpp"
     ],
-    "directory": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/",
-    "file": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/src/main.cpp",
-    "output": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/obj/x64/Debug/TestGame/main.o"
+    "directory": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/",
+    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/src/main.cpp",
+    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/MedievalHearthSteel/main.o"
   },
   {
     "arguments": [
@@ -200,9 +226,9 @@
       "obj/x64/Debug/raylib/config.o",
       "build/external/raylib-master/src/config.h"
     ],
-    "directory": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/",
-    "file": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/build/external/raylib-master/src/config.h",
-    "output": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/obj/x64/Debug/raylib/config.o"
+    "directory": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/",
+    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/build/external/raylib-master/src/config.h",
+    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/raylib/config.o"
   },
   {
     "arguments": [
@@ -223,9 +249,9 @@
       "obj/x64/Debug/raylib/raylib.o",
       "build/external/raylib-master/src/raylib.h"
     ],
-    "directory": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/",
-    "file": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/build/external/raylib-master/src/raylib.h",
-    "output": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/obj/x64/Debug/raylib/raylib.o"
+    "directory": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/",
+    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/build/external/raylib-master/src/raylib.h",
+    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/raylib/raylib.o"
   },
   {
     "arguments": [
@@ -246,9 +272,9 @@
       "obj/x64/Debug/raylib/raymath.o",
       "build/external/raylib-master/src/raymath.h"
     ],
-    "directory": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/",
-    "file": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/build/external/raylib-master/src/raymath.h",
-    "output": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/obj/x64/Debug/raylib/raymath.o"
+    "directory": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/",
+    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/build/external/raylib-master/src/raymath.h",
+    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/raylib/raymath.o"
   },
   {
     "arguments": [
@@ -269,9 +295,9 @@
       "obj/x64/Debug/raylib/rcamera.o",
       "build/external/raylib-master/src/rcamera.h"
     ],
-    "directory": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/",
-    "file": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/build/external/raylib-master/src/rcamera.h",
-    "output": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/obj/x64/Debug/raylib/rcamera.o"
+    "directory": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/",
+    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/build/external/raylib-master/src/rcamera.h",
+    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/raylib/rcamera.o"
   },
   {
     "arguments": [
@@ -292,9 +318,9 @@
       "obj/x64/Debug/raylib/rgestures.o",
       "build/external/raylib-master/src/rgestures.h"
     ],
-    "directory": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/",
-    "file": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/build/external/raylib-master/src/rgestures.h",
-    "output": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/obj/x64/Debug/raylib/rgestures.o"
+    "directory": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/",
+    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/build/external/raylib-master/src/rgestures.h",
+    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/raylib/rgestures.o"
   },
   {
     "arguments": [
@@ -315,9 +341,9 @@
       "obj/x64/Debug/raylib/rlgl.o",
       "build/external/raylib-master/src/rlgl.h"
     ],
-    "directory": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/",
-    "file": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/build/external/raylib-master/src/rlgl.h",
-    "output": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/obj/x64/Debug/raylib/rlgl.o"
+    "directory": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/",
+    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/build/external/raylib-master/src/rlgl.h",
+    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/raylib/rlgl.o"
   },
   {
     "arguments": [
@@ -338,9 +364,9 @@
       "obj/x64/Debug/raylib/raudio.o",
       "build/external/raylib-master/src/raudio.c"
     ],
-    "directory": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/",
-    "file": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/build/external/raylib-master/src/raudio.c",
-    "output": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/obj/x64/Debug/raylib/raudio.o"
+    "directory": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/",
+    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/build/external/raylib-master/src/raudio.c",
+    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/raylib/raudio.o"
   },
   {
     "arguments": [
@@ -361,9 +387,9 @@
       "obj/x64/Debug/raylib/rcore.o",
       "build/external/raylib-master/src/rcore.c"
     ],
-    "directory": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/",
-    "file": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/build/external/raylib-master/src/rcore.c",
-    "output": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/obj/x64/Debug/raylib/rcore.o"
+    "directory": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/",
+    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/build/external/raylib-master/src/rcore.c",
+    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/raylib/rcore.o"
   },
   {
     "arguments": [
@@ -384,9 +410,9 @@
       "obj/x64/Debug/raylib/rglfw.o",
       "build/external/raylib-master/src/rglfw.c"
     ],
-    "directory": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/",
-    "file": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/build/external/raylib-master/src/rglfw.c",
-    "output": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/obj/x64/Debug/raylib/rglfw.o"
+    "directory": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/",
+    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/build/external/raylib-master/src/rglfw.c",
+    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/raylib/rglfw.o"
   },
   {
     "arguments": [
@@ -407,9 +433,9 @@
       "obj/x64/Debug/raylib/rmodels.o",
       "build/external/raylib-master/src/rmodels.c"
     ],
-    "directory": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/",
-    "file": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/build/external/raylib-master/src/rmodels.c",
-    "output": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/obj/x64/Debug/raylib/rmodels.o"
+    "directory": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/",
+    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/build/external/raylib-master/src/rmodels.c",
+    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/raylib/rmodels.o"
   },
   {
     "arguments": [
@@ -430,9 +456,9 @@
       "obj/x64/Debug/raylib/rshapes.o",
       "build/external/raylib-master/src/rshapes.c"
     ],
-    "directory": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/",
-    "file": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/build/external/raylib-master/src/rshapes.c",
-    "output": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/obj/x64/Debug/raylib/rshapes.o"
+    "directory": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/",
+    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/build/external/raylib-master/src/rshapes.c",
+    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/raylib/rshapes.o"
   },
   {
     "arguments": [
@@ -453,9 +479,9 @@
       "obj/x64/Debug/raylib/rtext.o",
       "build/external/raylib-master/src/rtext.c"
     ],
-    "directory": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/",
-    "file": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/build/external/raylib-master/src/rtext.c",
-    "output": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/obj/x64/Debug/raylib/rtext.o"
+    "directory": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/",
+    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/build/external/raylib-master/src/rtext.c",
+    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/raylib/rtext.o"
   },
   {
     "arguments": [
@@ -476,8 +502,8 @@
       "obj/x64/Debug/raylib/rtextures.o",
       "build/external/raylib-master/src/rtextures.c"
     ],
-    "directory": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/",
-    "file": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/build/external/raylib-master/src/rtextures.c",
-    "output": "/Users/mikolajsobczak/Dane/Programowanie/TestGame/obj/x64/Debug/raylib/rtextures.o"
+    "directory": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/",
+    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/build/external/raylib-master/src/rtextures.c",
+    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/raylib/rtextures.o"
   },
 ]

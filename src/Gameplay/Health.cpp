@@ -1,7 +1,9 @@
 #include "Gameplay/Health.hpp"
+#include <iostream>
 
 Health::Health(int maxHealth, int currentHealth)
-    : maxHealth(maxHealth), currentHealth(currentHealth) {}
+    : maxHealth(std::max(maxHealth, 100)),
+      currentHealth(std::clamp(currentHealth, 0, maxHealth)) {}
 
 Health::~Health() {}
 

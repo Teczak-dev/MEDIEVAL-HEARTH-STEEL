@@ -14,7 +14,8 @@ public:
   ~UserInterfaceSystem();
 
   void Update(float deltaTime);
-  void Render(int screenWidth, int screenHeight, int playerHealth);
+  void Render(const int &screenWidth, const int &screenHeight,
+              int playerHealth);
 
 private:
   UIState currentState = UI_STATE_GAMEPLAY;

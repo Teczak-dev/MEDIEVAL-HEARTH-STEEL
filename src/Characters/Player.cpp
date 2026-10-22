@@ -13,8 +13,9 @@ void Player::SetPosition(Vector2 newPosition) { position = newPosition; }
 
 float Player::GetSpeed() { return speed; }
 
-void Player::Update(float deltaTime, InputSystem &inpSys, int screenWidth,
-                    int screenHeight, Damage &damage) {
+void Player::Update(float deltaTime, InputSystem &inpSys,
+                    const int &screenWidth, const int &screenHeight,
+                    Damage &damage) {
 
   if (inpSys.IsReleasedKeyName("damage")) {
     damage.TakeDamage(10, DamageType::Physical, health);

@@ -25,26 +25,6 @@
             "dependsOn":["UpdateMake"]
         },
         {
-            "label": "build debug no premake",
-            "type": "process",
-            "command": "make",
-            "windows": {
-                "command": "mingw32-make.exe",
-            },
-            "osx": {
-                "args": [
-                    "config=debug_arm64"
-                ],
-            },
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "problemMatcher": [
-                "$gcc"
-            ]
-        },
-        {
             "label": "build release",
             "type": "process",
             "command": "make",
@@ -90,7 +70,8 @@
             },
             "osx": {
                 "args": [
-                    "clean"
+                    "clean",
+                    "config=debug_arm64"
                 ],
             },
              "group": {

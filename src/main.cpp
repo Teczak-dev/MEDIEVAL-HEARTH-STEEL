@@ -5,11 +5,13 @@
 #include "Worlds/TestMap.hpp"
 #include "raylib.h"
 
-int main() {
-  const int screenWidth = 1024;
-  const int screenHeight = 768;
+const int SCREEN_WIDTH = 1024;
+const int SCREEN_HEIGHT = 768;
 
-  InitWindow(screenWidth, screenHeight, "MEDIEVAL HEARTH & STEEL - Prototype");
+int main() {
+
+  InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT,
+             "MEDIEVAL HEARTH & STEEL - Prototype");
   if (!IsWindowReady()) {
     TraceLog(LOG_ERROR, "Could not create the application window");
     return 1;
@@ -18,7 +20,7 @@ int main() {
   SetTargetFPS(60);
   Damage damage;
 
-  Player player({screenWidth / 2.0f, screenHeight / 2.0f}, 200.0f);
+  Player player({SCREEN_WIDTH / 2.0f, SCREEN_HEIGHT / 2.0f}, 200.0f);
 
   TestMap map(30, 40, 64, 64);
 
@@ -27,7 +29,7 @@ int main() {
 
   Camera2D camera = {0};
   camera.target = player.GetPosition();
-  camera.offset = {screenWidth / 2.0f, screenHeight / 2.0f};
+  camera.offset = {SCREEN_WIDTH / 2.0f, SCREEN_HEIGHT / 2.0f};
   camera.rotation = 0.0f;
   camera.zoom = 1.0f;
 
@@ -38,7 +40,7 @@ int main() {
   while (!WindowShouldClose()) {
     float deltaTime = GetFrameTime();
     // 1. Update (Logika gry)
-    player.Update(deltaTime, inpSys, screenWidth, screenHeight, damage);
+    player.Update(deltaTime, inpSys, SCREEN_WIDTH, SCREEN_HEIGHT, damage);
     camera.target = player.GetPosition();
     // 2. Draw (Renderowanie)
     BeginDrawing();
@@ -54,7 +56,7 @@ int main() {
     EndMode2D();
 
     // interface
-    uiSys.Render(screenWidth, screenHeight, player.health.GetCurrentHealth());
+    uiSys.Render(SCREEN_WIDTH, SCREEN_HEIGHT, player.health.GetCurrentHealth());
 
     EndDrawing();
   }

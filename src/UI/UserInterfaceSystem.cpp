@@ -8,8 +8,8 @@ void UserInterfaceSystem::Update(float deltaTime) {
   // LOGIC
 }
 
-void UserInterfaceSystem::Render(int screenWidth, int screenHeight,
-                                 int playerHealth) {
+void UserInterfaceSystem::Render(const int &screenWidth,
+                                 const int &screenHeight, int playerHealth) {
   // UPPER LEFT CORNER
   DrawRectangle(10, 10, 280, 80, Fade(BLACK, 0.6f));
   DrawRectangleLines(10, 10, 280, 80, GOLD);
