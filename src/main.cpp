@@ -1,6 +1,7 @@
 #include "Characters/Player.hpp"
+#include "Gameplay/Damage.hpp"
 #include "Systems/InputSystem.hpp"
-#include "Systems/UserInterfaceSystem.hpp"
+#include "UI/UserInterfaceSystem.hpp"
 #include "Worlds/TestMap.hpp"
 #include "raylib.h"
 
@@ -15,6 +16,7 @@ int main() {
   }
 
   SetTargetFPS(60);
+  Damage damage;
 
   Player player({screenWidth / 2.0f, screenHeight / 2.0f}, 200.0f);
 
@@ -29,12 +31,14 @@ int main() {
   camera.rotation = 0.0f;
   camera.zoom = 1.0f;
 
-  SetExitKey(KEY_NULL);
+  // turn off the default exit key (ESC) to avoid closing the window when
+  // pressing ESC
+  // SetExitKey(KEY_NULL);
 
   while (!WindowShouldClose()) {
     float deltaTime = GetFrameTime();
     // 1. Update (Logika gry)
-    player.Update(deltaTime, inpSys, screenWidth, screenHeight);
+    player.Update(deltaTime, inpSys, screenWidth, screenHeight, damage);
     camera.target = player.GetPosition();
     // 2. Draw (Renderowanie)
     BeginDrawing();
@@ -50,7 +54,7 @@ int main() {
     EndMode2D();
 
     // interface
-    uiSys.Render(screenWidth, screenHeight, player.GetHealth());
+    uiSys.Render(screenWidth, screenHeight, player.health.GetCurrentHealth());
 
     EndDrawing();
   }

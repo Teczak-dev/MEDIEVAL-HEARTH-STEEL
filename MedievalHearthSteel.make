@@ -118,12 +118,16 @@ endif
 GENERATED :=
 OBJECTS :=
 
+GENERATED += $(OBJDIR)/Damage.o
+GENERATED += $(OBJDIR)/Health.o
 GENERATED += $(OBJDIR)/InputSystem.o
 GENERATED += $(OBJDIR)/Player.o
 GENERATED += $(OBJDIR)/TestMap.o
 GENERATED += $(OBJDIR)/UIElements.o
 GENERATED += $(OBJDIR)/UserInterfaceSystem.o
 GENERATED += $(OBJDIR)/main.o
+OBJECTS += $(OBJDIR)/Damage.o
+OBJECTS += $(OBJDIR)/Health.o
 OBJECTS += $(OBJDIR)/InputSystem.o
 OBJECTS += $(OBJDIR)/Player.o
 OBJECTS += $(OBJDIR)/TestMap.o
@@ -196,13 +200,19 @@ endif
 $(OBJDIR)/Player.o: src/Characters/Player.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/Damage.o: src/Gameplay/Damage.cpp
+	@echo "$(notdir $<)"
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/Health.o: src/Gameplay/Health.cpp
+	@echo "$(notdir $<)"
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/InputSystem.o: src/Systems/InputSystem.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/UserInterfaceSystem.o: src/Systems/UserInterfaceSystem.cpp
+$(OBJDIR)/UIElements.o: src/UI/UIElements.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/UIElements.o: src/UI/UIElements.cpp
+$(OBJDIR)/UserInterfaceSystem.o: src/UI/UserInterfaceSystem.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/TestMap.o: src/Worlds/TestMap.cpp

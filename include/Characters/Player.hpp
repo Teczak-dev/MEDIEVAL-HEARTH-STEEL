@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Gameplay/Damage.hpp"
+#include "Gameplay/Health.hpp"
 #include "Systems/InputSystem.hpp"
 #include "raylib.h"
 
@@ -13,15 +15,12 @@ public:
   float GetSpeed();
   void Draw();
   void Update(float deltaTime, InputSystem &inpSys, int screenWidth,
-              int screenHeight);
-
-  int GetHealth();
+              int screenHeight, Damage &damage);
+  Health health;
   void TakeDamage(int damage);
-  void Heal(int amount);
 
 private:
   Vector2 position;
   Vector2 lastDirection = {0.0f, 0.1f};
   float speed;
-  int health = 100;
 };

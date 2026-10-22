@@ -1,7 +1,5 @@
 #pragma once
 
-#include "raylib.h"
-
 class TestMap {
 public:
   TestMap(int sizeX, int sizeY, int width, int height);

@@ -3,7 +3,7 @@
 #include "raymath.h"
 
 Player::Player(Vector2 position, float speed)
-    : position(position), speed(speed) {}
+    : position(position), speed(speed), health(100, 100) {}
 
 Player::~Player() {}
 
@@ -13,29 +13,14 @@ void Player::SetPosition(Vector2 newPosition) { position = newPosition; }
 
 float Player::GetSpeed() { return speed; }
 
-int Player::GetHealth() { return health; }
-
-void Player::TakeDamage(int damage) {
-  health -= damage;
-  if (health < 0)
-    health = 0;
-}
-
-void Player::Heal(int amount) {
-  health += amount;
-  if (health > 100)
-    health = 100;
-}
-
 void Player::Update(float deltaTime, InputSystem &inpSys, int screenWidth,
-                    int screenHeight) {
+                    int screenHeight, Damage &damage) {
 
-  // TEST: TAKING DAMAGE/HEALING AND HEALTH BAR Update
   if (inpSys.IsReleasedKeyName("damage")) {
-    TakeDamage(10);
+    damage.TakeDamage(10, DamageType::Physical, health);
   }
   if (inpSys.IsReleasedKeyName("heal")) {
-    Heal(10);
+    health.Heal(10);
   }
 
   Vector2 movement = {0, 0};
@@ -54,7 +39,8 @@ void Player::Update(float deltaTime, InputSystem &inpSys, int screenWidth,
 
   Vector2 velocity = Vector2Scale(movement, GetSpeed() * deltaTime);
   Vector2 newPosition = Vector2Add(GetPosition(), velocity);
-  if (GetHealth() > 0) { // simplyfide death check, player can't move if dead
+  if (health.GetCurrentHealth() >
+      0) { // simplyfide death check, player can't move if dead
     SetPosition(newPosition);
   }
   if (movement.x != 0 || movement.y != 0)
