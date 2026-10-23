@@ -1,7 +1,4 @@
 #include "Characters/Player.hpp"
-#include "Gameplay/Damage.hpp"
-#include "Systems/InputSystem.hpp"
-#include "UI/UserInterfaceSystem.hpp"
 #include "Worlds/TestMap.hpp"
 #include "raylib.h"
 
