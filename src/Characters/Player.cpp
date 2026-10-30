@@ -15,7 +15,7 @@ float Player::GetSpeed() { return speed; }
 
 void Player::Update(float deltaTime, InputSystem &inpSys,
                     const int &screenWidth, const int &screenHeight,
-                    Damage &damage) {
+                    Damage &damage, const Map &map) {
 
   if (inpSys.IsReleasedKeyName("damage")) {
     damage.TakeDamage(10, DamageType::Physical, health);
@@ -38,10 +38,13 @@ void Player::Update(float deltaTime, InputSystem &inpSys,
     movement = Vector2Normalize(movement);
   }
 
-  Vector2 velocity = Vector2Scale(movement, GetSpeed() * deltaTime);
+  const float movementSpeed =
+      GetSpeed() * (inpSys.IsDownKeyName("sprint") ? 2.0f : 1.0f);
+  Vector2 velocity = Vector2Scale(movement, movementSpeed * deltaTime);
   Vector2 newPosition = Vector2Add(GetPosition(), velocity);
-  if (health.GetCurrentHealth() >
-      0) { // simplyfide death check, player can't move if dead
+  newPosition = map.ClampPosition(newPosition, {64.0f, 64.0f});
+  if (health.GetCurrentHealth() > 0 &&
+      !map.Collides(newPosition, {64.0f, 64.0f})) {
     SetPosition(newPosition);
   }
   if (movement.x != 0 || movement.y != 0)

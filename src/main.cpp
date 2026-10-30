@@ -9,19 +9,18 @@ int main() {
     TraceLog(LOG_ERROR, "Could not create the application window");
     return 1;
   }
+  game.LoadAssets();
 
   SetTargetFPS(60);
-
-  // turn off the default exit key (ESC) to avoid closing the window when
-  // pressing ESC
   SetExitKey(KEY_NULL);
 
-  while (!WindowShouldClose()) {
+  while (!WindowShouldClose() && !game.IsExitRequested()) {
     float deltaTime = GetFrameTime();
     game.Update(deltaTime);
     game.Draw();
   }
 
+  game.Shutdown();
   CloseWindow();
   return 0;
 }

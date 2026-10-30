@@ -17,6 +17,8 @@ and gameplay systems.
 - separate input, interface, character, and map systems;
 - game resources are located in the `resources/` directory;
 - the project is not yet a finished, full game.
+- map and chunk format: [`docs/map-format.md`](docs/map-format.md).
+- implementation backlog: [`TODO.md`](TODO.md).
 
 ## Requirements
 

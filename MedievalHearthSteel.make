@@ -118,23 +118,27 @@ endif
 GENERATED :=
 OBJECTS :=
 
+GENERATED += $(OBJDIR)/Chunk.o
 GENERATED += $(OBJDIR)/Damage.o
 GENERATED += $(OBJDIR)/Game.o
 GENERATED += $(OBJDIR)/Health.o
 GENERATED += $(OBJDIR)/InputSystem.o
+GENERATED += $(OBJDIR)/Map.o
 GENERATED += $(OBJDIR)/Player.o
-GENERATED += $(OBJDIR)/TestMap.o
 GENERATED += $(OBJDIR)/UIElements.o
 GENERATED += $(OBJDIR)/UserInterfaceSystem.o
+GENERATED += $(OBJDIR)/World.o
 GENERATED += $(OBJDIR)/main.o
+OBJECTS += $(OBJDIR)/Chunk.o
 OBJECTS += $(OBJDIR)/Damage.o
 OBJECTS += $(OBJDIR)/Game.o
 OBJECTS += $(OBJDIR)/Health.o
 OBJECTS += $(OBJDIR)/InputSystem.o
+OBJECTS += $(OBJDIR)/Map.o
 OBJECTS += $(OBJDIR)/Player.o
-OBJECTS += $(OBJDIR)/TestMap.o
 OBJECTS += $(OBJDIR)/UIElements.o
 OBJECTS += $(OBJDIR)/UserInterfaceSystem.o
+OBJECTS += $(OBJDIR)/World.o
 OBJECTS += $(OBJDIR)/main.o
 
 # Rules
@@ -220,7 +224,13 @@ $(OBJDIR)/UIElements.o: src/UI/UIElements.cpp
 $(OBJDIR)/UserInterfaceSystem.o: src/UI/UserInterfaceSystem.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/TestMap.o: src/Worlds/TestMap.cpp
+$(OBJDIR)/Chunk.o: src/Worlds/Chunk.cpp
+	@echo "$(notdir $<)"
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/Map.o: src/Worlds/Map.cpp
+	@echo "$(notdir $<)"
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/World.o: src/Worlds/World.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/main.o: src/main.cpp

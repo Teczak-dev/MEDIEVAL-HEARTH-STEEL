@@ -5,22 +5,25 @@
 // and pause menu. It handles scene transitions, updates, and rendering.
 // or at least it will in the future, for now it just a placeholder for the main
 // game loop and scene management.
-
 #include "Characters/Player.hpp"
 #include "Gameplay/Damage.hpp"
 #include "Systems/InputSystem.hpp"
 #include "UI/UserInterfaceSystem.hpp"
-#include "Worlds/TestMap.hpp"
+#include "Worlds/Map.hpp"
+#include "raylib.h"
 
 class Game {
 public:
   Game();
   ~Game();
 
+  void LoadAssets();
+  void Shutdown();
   void Update(float deltaTime);
   void Draw();
   int GetScreenWidth() const;
   int GetScreenHeight() const;
+  bool IsExitRequested() const;
 
 private:
   const int SCREEN_WIDTH = 1024;
@@ -30,6 +33,7 @@ private:
   UserInterfaceSystem uiSys;
   Damage damage;
   Camera2D camera = {0};
-  TestMap map{30, 40, 64, 64};
+  Map map{"assets/maps/map.json"};
   UIState lastUIState = UI_STATE_MAIN_MENU;
+  bool isShutdown = false;
 };

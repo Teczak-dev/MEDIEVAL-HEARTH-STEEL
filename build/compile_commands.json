@@ -200,12 +200,64 @@
       "-Wno-deprecated-declarations",
       "-c",
       "-o",
-      "obj/x64/Debug/MedievalHearthSteel/TestMap.o",
-      "src/Worlds/TestMap.cpp"
+      "obj/x64/Debug/MedievalHearthSteel/Chunk.o",
+      "src/Worlds/Chunk.cpp"
     ],
     "directory": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/",
-    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/src/Worlds/TestMap.cpp",
-    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/MedievalHearthSteel/TestMap.o"
+    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/src/Worlds/Chunk.cpp",
+    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/MedievalHearthSteel/Chunk.o"
+  },
+  {
+    "arguments": [
+      "clang++",
+      "-MD",
+      "-MP",
+      "-DDEBUG",
+      "-DPLATFORM_DESKTOP",
+      "-DGRAPHICS_API_OPENGL_33",
+      "-Isrc",
+      "-Iinclude",
+      "-Iexternal",
+      "-Ibuild/external/raylib-master/src",
+      "-m64",
+      "-Wshadow",
+      "-g",
+      "-std=c++20",
+      "-Wno-deprecated-declarations",
+      "-c",
+      "-o",
+      "obj/x64/Debug/MedievalHearthSteel/Map.o",
+      "src/Worlds/Map.cpp"
+    ],
+    "directory": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/",
+    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/src/Worlds/Map.cpp",
+    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/MedievalHearthSteel/Map.o"
+  },
+  {
+    "arguments": [
+      "clang++",
+      "-MD",
+      "-MP",
+      "-DDEBUG",
+      "-DPLATFORM_DESKTOP",
+      "-DGRAPHICS_API_OPENGL_33",
+      "-Isrc",
+      "-Iinclude",
+      "-Iexternal",
+      "-Ibuild/external/raylib-master/src",
+      "-m64",
+      "-Wshadow",
+      "-g",
+      "-std=c++20",
+      "-Wno-deprecated-declarations",
+      "-c",
+      "-o",
+      "obj/x64/Debug/MedievalHearthSteel/World.o",
+      "src/Worlds/World.cpp"
+    ],
+    "directory": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/",
+    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/src/Worlds/World.cpp",
+    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/MedievalHearthSteel/World.o"
   },
   {
     "arguments": [

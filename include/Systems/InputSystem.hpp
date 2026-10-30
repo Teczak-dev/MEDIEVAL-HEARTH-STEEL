@@ -19,6 +19,7 @@ private:
       {"W", KEY_W},       {"S", KEY_S},         {"A", KEY_A},
       {"D", KEY_D},       {"UP", KEY_UP},       {"DOWN", KEY_DOWN},
       {"LEFT", KEY_LEFT}, {"RIGHT", KEY_RIGHT}, {"SPACE", KEY_SPACE},
+      {"SHIFT", KEY_LEFT_SHIFT},
       {"Q", KEY_Q},       {"E", KEY_E},         {"R", KEY_R},
       {"F", KEY_F},       {"G", KEY_G},         {"H", KEY_H},
       {"J", KEY_J},       {"K", KEY_K},         {"L", KEY_L},

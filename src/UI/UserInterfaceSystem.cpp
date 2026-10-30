@@ -5,15 +5,21 @@ UserInterfaceSystem::UserInterfaceSystem() {}
 UserInterfaceSystem::~UserInterfaceSystem() {}
 
 void UserInterfaceSystem::Update(float deltaTime) {
+
   // LOGIC
   if (currentState == UI_STATE_MAIN_MENU) {
     if (IsKeyPressed(KEY_ENTER)) {
       currentState = UI_STATE_GAMEPLAY;
     }
-    SetExitKey(KEY_Q);
+    if (IsKeyPressed(KEY_Q)) {
+      exitRequested = true;
+    }
   } else if (currentState == UI_STATE_GAMEPLAY) {
     if (IsKeyPressed(KEY_ESCAPE)) {
       currentState = UI_STATE_PAUSE_MENU;
+    }
+    if (IsKeyPressed(KEY_TAB)) {
+      ToggleMinimap();
     }
   } else if (currentState == UI_STATE_PAUSE_MENU) {
     if (IsKeyPressed(KEY_ESCAPE)) {
@@ -23,11 +29,11 @@ void UserInterfaceSystem::Update(float deltaTime) {
       currentState = UI_STATE_MAIN_MENU;
     }
   }
-  SetExitKey(KEY_NULL);
 }
 
 void UserInterfaceSystem::Render(const int &screenWidth,
-                                 const int &screenHeight, int playerHealth) {
+                                 const int &screenHeight, int playerHealth,
+                                 const Map &map, Vector2 playerPosition) {
 
   if (currentState == UI_STATE_MAIN_MENU)
     RenderMainMenu(screenWidth, screenHeight);
@@ -37,6 +43,11 @@ void UserInterfaceSystem::Render(const int &screenWidth,
     DrawRectangleLines(10, 10, 280, 80, GOLD);
     DrawText("Medieval Hearth & Steel", 20, 20, 18, GOLD);
     DrawFPS(20, 65);
+
+    // UPPER RIGHT CORNER (MINIMAP)
+    if (showMinimap)
+      map.DrawMinimap({screenWidth - 210.0f, 10.0f, 200.0f, 150.0f},
+                      playerPosition);
 
     // BOTTOM LEFT CORNER ( PLAYER HEALTH BAR )
     DrawRectangle(5, screenHeight - 55, 210, 40, BLACK);
@@ -57,6 +68,8 @@ void UserInterfaceSystem::RenderMainMenu(const int &screenWidth,
            screenHeight / 2 - 100, 48, GOLD);
   DrawText("Press ENTER to start the game", screenWidth / 2 - 200,
            screenHeight / 2, 24, RAYWHITE);
+  DrawText("Press Q to exit", screenWidth / 2 - 100, screenHeight / 2 + 50,
+           24, RAYWHITE);
 }
 
 void UserInterfaceSystem::RenderPauseMenu(const int &screenWidth,
@@ -69,3 +82,5 @@ void UserInterfaceSystem::RenderPauseMenu(const int &screenWidth,
 }
 
 UIState UserInterfaceSystem::GetCurrentState() const { return currentState; }
+
+bool UserInterfaceSystem::IsExitRequested() const { return exitRequested; }

@@ -3,7 +3,8 @@
     "move_up": ["W", "UP"],
     "move_down": ["S", "DOWN"],
     "move_left": ["A", "LEFT"],
-    "move_right": ["D", "RIGHT"]
+    "move_right": ["D", "RIGHT"],
+    "sprint": ["SHIFT"]
   },
   "actions": {
     "interact": ["E", "SPACE"],
