@@ -1,0 +1,11 @@
+{
+  "tile_size": 64,
+  "chunk_width": 16,
+  "chunk_height": 12,
+  "exit": { "x": 96, "y": 192, "width": 64, "height": 64 },
+  "chunks": [
+    [
+      { "fill": 2 }
+    ]
+  ]
+}

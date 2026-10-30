@@ -36,4 +36,12 @@ private:
   Map map{"assets/maps/map.json"};
   UIState lastUIState = UI_STATE_MAIN_MENU;
   bool isShutdown = false;
+
+  void UpdateWorldTransition();
+  void FinishWorldTransition();
+  bool worldTransitionActive = false;
+  bool transitionToInterior = false;
+  bool transitionSwitched = false;
+  float transitionTimer = 0.0f;
+  float transitionOpacity = 0.0f;
 };

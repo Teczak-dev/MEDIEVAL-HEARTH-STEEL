@@ -40,9 +40,23 @@ void Game::Update(float deltaTime) {
     }
   }
 
+  // Keep the area behind the main menu visible before gameplay starts.
+  map.UpdateActiveChunks(player.GetPosition());
+
   if (currentUIState == UI_STATE_GAMEPLAY) {
-    map.UpdateActiveChunks(player.GetPosition());
-    player.Update(deltaTime, inpSys, SCREEN_WIDTH, SCREEN_HEIGHT, damage, map);
+    if (worldTransitionActive) {
+      transitionTimer += deltaTime;
+      if (transitionTimer >= 0.35f && !transitionSwitched) {
+        FinishWorldTransition();
+      }
+      if (transitionTimer >= 0.7f) {
+        worldTransitionActive = false;
+        transitionOpacity = 0.0f;
+      }
+    } else {
+      player.Update(deltaTime, inpSys, SCREEN_WIDTH, SCREEN_HEIGHT, damage, map);
+      UpdateWorldTransition();
+    }
     const Vector2 worldSize = map.GetWorldSize();
     const float halfViewWidth = SCREEN_WIDTH / (2.0f * camera.zoom);
     const float halfViewHeight = SCREEN_HEIGHT / (2.0f * camera.zoom);
@@ -52,12 +66,60 @@ void Game::Update(float deltaTime) {
     camera.target.y = Clamp(camera.target.y + 32.0f, halfViewHeight,
                             worldSize.y - halfViewHeight);
     if (IsKeyDown(KEY_X))
-      camera.zoom += 0.01f;
+      camera.zoom = Clamp(camera.zoom + 0.01f, 0.25f, 3.0f);
     if (IsKeyDown(KEY_Z))
-      camera.zoom -= 0.01f;
+      camera.zoom = Clamp(camera.zoom - 0.01f, 0.25f, 3.0f);
     if (IsKeyPressed(KEY_C))
       camera.zoom = 1.0f;
   }
+
+  if (currentUIState == UI_STATE_PAUSE_MENU) {
+    const Vector2 worldSize = map.GetWorldSize();
+    const float halfViewWidth = SCREEN_WIDTH / (2.0f * camera.zoom);
+    const float halfViewHeight = SCREEN_HEIGHT / (2.0f * camera.zoom);
+    camera.target = player.GetPosition();
+    camera.target.x = Clamp(camera.target.x + 32.0f, halfViewWidth,
+                            worldSize.x - halfViewWidth);
+    camera.target.y = Clamp(camera.target.y + 32.0f, halfViewHeight,
+                            worldSize.y - halfViewHeight);
+  }
+}
+
+void Game::UpdateWorldTransition() {
+  if (!map.IsInteriorActive() &&
+      map.HasEntrance(player.GetPosition(), {64.0f, 64.0f})) {
+    worldTransitionActive = true;
+    transitionToInterior = true;
+    transitionTimer = 0.0f;
+    transitionOpacity = 0.0f;
+    transitionSwitched = false;
+    return;
+  }
+
+  if (map.IsInteriorActive() &&
+      map.IsAtInteriorExit(player.GetPosition(), {64.0f, 64.0f})) {
+    worldTransitionActive = true;
+    transitionToInterior = false;
+    transitionTimer = 0.0f;
+    transitionOpacity = 0.0f;
+    transitionSwitched = false;
+  }
+}
+
+void Game::FinishWorldTransition() {
+  if (transitionToInterior) {
+    Vector2 interiorSpawn = {0};
+    if (map.EnterInterior(player.GetPosition(), {64.0f, 64.0f},
+                          interiorSpawn)) {
+      player.SetPosition(interiorSpawn);
+    }
+  } else {
+    Vector2 outdoorPosition = {0};
+    if (map.LeaveInterior(outdoorPosition)) {
+      player.SetPosition(outdoorPosition);
+    }
+  }
+  transitionSwitched = true;
 }
 
 void Game::Draw() {
@@ -76,6 +138,19 @@ void Game::Draw() {
   // interface
   uiSys.Render(SCREEN_WIDTH, SCREEN_HEIGHT, player.health.GetCurrentHealth(),
                map, player.GetPosition());
+
+  if (worldTransitionActive) {
+    transitionOpacity = transitionTimer < 0.35f
+                           ? Clamp(transitionTimer / 0.35f, 0.0f, 1.0f)
+                           : Clamp(1.0f - (transitionTimer - 0.35f) / 0.35f,
+                                   0.0f, 1.0f);
+    if (transitionTimer >= 0.7f) {
+      worldTransitionActive = false;
+      transitionOpacity = 0.0f;
+    }
+    DrawRectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT,
+                  Fade(BLACK, transitionOpacity));
+  }
 
   EndDrawing();
 }

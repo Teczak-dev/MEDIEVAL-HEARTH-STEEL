@@ -15,13 +15,59 @@ World::World(const std::string &mapPath) {
 
   json document;
   file >> document;
+  tileSize = document.value("tile_size", tileSize);
+  chunkWidth = document.value("chunk_width", chunkWidth);
+  chunkHeight = document.value("chunk_height", chunkHeight);
+  if (tileSize <= 0 || chunkWidth <= 0 || chunkHeight <= 0) {
+    throw std::runtime_error("Map dimensions must be positive");
+  }
   const json &mapChunks = document.at("chunks");
   if (!mapChunks.is_array() || mapChunks.empty() ||
       !mapChunks.front().is_array() || mapChunks.front().empty()) {
     throw std::runtime_error("Map field 'chunks' must be a non-empty 2D array");
   }
-
   const std::size_t mapWidth = mapChunks.front().size();
+
+  if (document.contains("entrances")) {
+    for (const auto &sourceEntrance : document["entrances"]) {
+      WorldEntrance entrance;
+      entrance.id = sourceEntrance.at("id").get<std::string>();
+      const auto &chunk = sourceEntrance.at("chunk");
+      entrance.chunkX = chunk.at("x").get<int>();
+      entrance.chunkY = chunk.at("y").get<int>();
+      const auto &bounds = sourceEntrance.at("bounds");
+      entrance.bounds = {bounds.at("x").get<float>(),
+                         bounds.at("y").get<float>(),
+                         bounds.at("width").get<float>(),
+                         bounds.at("height").get<float>()};
+      entrance.worldPath = sourceEntrance.at("world").get<std::string>();
+      entrance.tilesetPath =
+          sourceEntrance.value("tileset", "assets/textures/tileset.png");
+      const auto &interiorSpawn = sourceEntrance.at("interior_spawn");
+      entrance.interiorSpawn = {interiorSpawn.at("x").get<float>(),
+                                interiorSpawn.at("y").get<float>()};
+      const auto &outdoorReturn = sourceEntrance.at("outdoor_return");
+      entrance.outdoorReturn = {outdoorReturn.at("x").get<float>(),
+                                outdoorReturn.at("y").get<float>()};
+
+      if (entrance.chunkX < 0 ||
+          entrance.chunkX >= static_cast<int>(mapWidth) ||
+          entrance.chunkY < 0 ||
+          entrance.chunkY >= static_cast<int>(mapChunks.size())) {
+        throw std::runtime_error("Entrance chunk is outside the map: " +
+                                 entrance.id);
+      }
+      entrances.push_back(std::move(entrance));
+    }
+  }
+  if (document.contains("exit")) {
+    const auto &exit = document["exit"];
+    exitBounds = Rectangle{exit.at("x").get<float>(),
+                           exit.at("y").get<float>(),
+                           exit.at("width").get<float>(),
+                           exit.at("height").get<float>()};
+  }
+
   chunks.resize(mapChunks.size());
   for (std::size_t y = 0; y < mapChunks.size(); ++y) {
     if (!mapChunks[y].is_array() || mapChunks[y].size() != mapWidth) {
@@ -100,6 +146,24 @@ void World::Draw(Texture2D tileset) const {
       }
     }
   }
+  DrawEntranceMarkers();
+  if (exitBounds) {
+    DrawRectangleRec(*exitBounds, DARKGREEN);
+    DrawRectangleLinesEx(*exitBounds, 4.0f, LIME);
+    DrawText("EXIT", static_cast<int>(exitBounds->x + 5.0f),
+             static_cast<int>(exitBounds->y + 22.0f), 16, RAYWHITE);
+  }
+}
+
+void World::DrawEntranceMarkers() const {
+  for (const WorldEntrance &entrance : entrances) {
+    DrawRectangleRec(entrance.bounds, DARKBROWN);
+    DrawRectangleLinesEx(entrance.bounds, 4.0f, GOLD);
+    DrawRectangle(static_cast<int>(entrance.bounds.x + 16.0f),
+                  static_cast<int>(entrance.bounds.y + 16.0f),
+                  static_cast<int>(entrance.bounds.width - 32.0f),
+                  static_cast<int>(entrance.bounds.height - 16.0f), GOLD);
+  }
 }
 
 bool World::Collides(Vector2 position, Vector2 size) const {
@@ -147,9 +211,56 @@ void World::DrawMinimap(Rectangle bounds, Vector2 playerPosition) const {
     }
   }
   const Vector2 worldSize = GetWorldSize();
+  for (const WorldEntrance &entrance : entrances) {
+    const Rectangle marker = {
+        bounds.x + entrance.bounds.x / worldSize.x * bounds.width,
+        bounds.y + entrance.bounds.y / worldSize.y * bounds.height,
+        entrance.bounds.width / worldSize.x * bounds.width,
+        entrance.bounds.height / worldSize.y * bounds.height};
+    const float markerWidth = marker.width < 8.0f ? 8.0f : marker.width;
+    const float markerHeight = marker.height < 8.0f ? 8.0f : marker.height;
+    const Rectangle visibleMarker = {
+        marker.x - (markerWidth - marker.width) / 2.0f,
+        marker.y - (markerHeight - marker.height) / 2.0f, markerWidth,
+        markerHeight};
+    DrawRectangleRec(visibleMarker, GOLD);
+    DrawRectangleLinesEx(visibleMarker, 1.0f, WHITE);
+  }
+
+  if (exitBounds) {
+    const float exitX = bounds.x + exitBounds->x / worldSize.x * bounds.width;
+    const float exitY = bounds.y + exitBounds->y / worldSize.y * bounds.height;
+    DrawCircle(static_cast<int>(exitX), static_cast<int>(exitY), 5.0f, LIME);
+  }
+
+  // Draw the player last so its icon is always above entrances and exits.
   DrawCircle(static_cast<int>(bounds.x + playerPosition.x / worldSize.x *
                               bounds.width),
              static_cast<int>(bounds.y + playerPosition.y / worldSize.y *
                               bounds.height),
-             4.0f, RED);
+             5.0f, RED);
+  DrawCircleLines(static_cast<int>(bounds.x + playerPosition.x / worldSize.x *
+                                   bounds.width),
+                  static_cast<int>(bounds.y + playerPosition.y / worldSize.y *
+                                   bounds.height),
+                  6.0f, WHITE);
+}
+
+std::optional<WorldEntrance> World::FindEntrance(Vector2 position,
+                                                  Vector2 size) const {
+  const Rectangle playerBounds = {position.x, position.y, size.x, size.y};
+  for (const WorldEntrance &entrance : entrances) {
+    if (CheckCollisionRecs(playerBounds, entrance.bounds)) {
+      return entrance;
+    }
+  }
+  return std::nullopt;
+}
+
+bool World::IsAtExit(Vector2 position, Vector2 size) const {
+  if (!exitBounds) {
+    return false;
+  }
+  return CheckCollisionRecs({position.x, position.y, size.x, size.y},
+                            *exitBounds);
 }
