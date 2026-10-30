@@ -10,21 +10,26 @@
 #include "Gameplay/Damage.hpp"
 #include "Systems/InputSystem.hpp"
 #include "UI/UserInterfaceSystem.hpp"
+#include "Worlds/TestMap.hpp"
 
 class Game {
 public:
   Game();
   ~Game();
 
-  void LoadScene(const std::string &sceneName);
-
   void Update(float deltaTime);
   void Draw();
+  int GetScreenWidth() const;
+  int GetScreenHeight() const;
 
 private:
-  std::vector<std::string> scenes;
+  const int SCREEN_WIDTH = 1024;
+  const int SCREEN_HEIGHT = 768;
   Player player;
   InputSystem inpSys;
   UserInterfaceSystem uiSys;
   Damage damage;
+  Camera2D camera = {0};
+  TestMap map{30, 40, 64, 64};
+  UIState lastUIState = UI_STATE_MAIN_MENU;
 };

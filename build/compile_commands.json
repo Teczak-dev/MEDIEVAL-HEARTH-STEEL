@@ -44,6 +44,32 @@
       "-Wno-deprecated-declarations",
       "-c",
       "-o",
+      "obj/x64/Debug/MedievalHearthSteel/Game.o",
+      "src/Core/Game.cpp"
+    ],
+    "directory": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/",
+    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/src/Core/Game.cpp",
+    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/MedievalHearthSteel/Game.o"
+  },
+  {
+    "arguments": [
+      "clang++",
+      "-MD",
+      "-MP",
+      "-DDEBUG",
+      "-DPLATFORM_DESKTOP",
+      "-DGRAPHICS_API_OPENGL_33",
+      "-Isrc",
+      "-Iinclude",
+      "-Iexternal",
+      "-Ibuild/external/raylib-master/src",
+      "-m64",
+      "-Wshadow",
+      "-g",
+      "-std=c++20",
+      "-Wno-deprecated-declarations",
+      "-c",
+      "-o",
       "obj/x64/Debug/MedievalHearthSteel/Damage.o",
       "src/Gameplay/Damage.cpp"
     ],

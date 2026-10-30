@@ -16,7 +16,10 @@ public:
   void Update(float deltaTime);
   void Render(const int &screenWidth, const int &screenHeight,
               int playerHealth);
+  void RenderMainMenu(const int &screenWidth, const int &screenHeight);
+  void RenderPauseMenu(const int &screenWidth, const int &screenHeight);
+  UIState GetCurrentState() const;
 
 private:
-  UIState currentState = UI_STATE_GAMEPLAY;
+  UIState currentState = UI_STATE_MAIN_MENU;
 };

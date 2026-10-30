@@ -119,6 +119,7 @@ GENERATED :=
 OBJECTS :=
 
 GENERATED += $(OBJDIR)/Damage.o
+GENERATED += $(OBJDIR)/Game.o
 GENERATED += $(OBJDIR)/Health.o
 GENERATED += $(OBJDIR)/InputSystem.o
 GENERATED += $(OBJDIR)/Player.o
@@ -127,6 +128,7 @@ GENERATED += $(OBJDIR)/UIElements.o
 GENERATED += $(OBJDIR)/UserInterfaceSystem.o
 GENERATED += $(OBJDIR)/main.o
 OBJECTS += $(OBJDIR)/Damage.o
+OBJECTS += $(OBJDIR)/Game.o
 OBJECTS += $(OBJDIR)/Health.o
 OBJECTS += $(OBJDIR)/InputSystem.o
 OBJECTS += $(OBJDIR)/Player.o
@@ -198,6 +200,9 @@ endif
 # #############################################
 
 $(OBJDIR)/Player.o: src/Characters/Player.cpp
+	@echo "$(notdir $<)"
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/Game.o: src/Core/Game.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/Damage.o: src/Gameplay/Damage.cpp
