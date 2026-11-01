@@ -3,7 +3,6 @@
 #include "Gameplay/Damage.hpp"
 #include "Gameplay/Health.hpp"
 #include "Systems/InputSystem.hpp"
-#include "Worlds/Map.hpp"
 #include "raylib.h"
 
 class Player {
@@ -16,7 +15,7 @@ public:
   float GetSpeed();
   void Draw();
   void Update(float deltaTime, InputSystem &inpSys, const int &screenWidth,
-              const int &screenHeight, Damage &damage, const Map &map);
+              const int &screenHeight, Damage &damage);
   Health health;
   void TakeDamage(int damage);
 

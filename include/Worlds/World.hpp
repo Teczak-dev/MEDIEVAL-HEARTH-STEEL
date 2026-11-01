@@ -1,44 +1,15 @@
 #pragma once
-
-#include "Worlds/Chunk.hpp"
 #include "raylib.h"
-#include <optional>
-#include <string>
+#include <nlohmann/json.hpp>
 #include <vector>
 
-struct WorldEntrance {
-  std::string id;
-  int chunkX = 0;
-  int chunkY = 0;
-  Rectangle bounds = {0};
-  std::string worldPath;
-  std::string tilesetPath;
-  Vector2 interiorSpawn = {0};
-  Vector2 outdoorReturn = {0};
+struct MapData {
+  int width;
+  int height;
+  std::vector<int> tiles; // 2D array of tile IDs
 };
 
-class World {
-public:
-  explicit World(const std::string &mapPath);
+MapData LoadMapFromJson(const std::string &filepath);
 
-  void UpdateActiveChunks(Vector2 playerPosition);
-  void Draw(Texture2D tileset) const;
-  bool Collides(Vector2 position, Vector2 size) const;
-  Vector2 ClampPosition(Vector2 position, Vector2 size) const;
-  Vector2 GetWorldSize() const;
-  void DrawMinimap(Rectangle bounds, Vector2 playerPosition) const;
-  std::optional<WorldEntrance> FindEntrance(Vector2 position,
-                                             Vector2 size) const;
-  bool IsAtExit(Vector2 position, Vector2 size) const;
-
-private:
-  int tileSize = 64;
-  int chunkWidth = 128;
-  int chunkHeight = 128;
-  std::vector<std::vector<Chunk>> chunks;
-  std::vector<WorldEntrance> entrances;
-  std::optional<Rectangle> exitBounds;
-
-  void SetChunkActivity(int playerChunkX, int playerChunkY);
-  void DrawEntranceMarkers() const;
-};
+void DrawMap(const MapData &map, int tileSize, const Texture2D &tileset,
+             int sourceTileSize);

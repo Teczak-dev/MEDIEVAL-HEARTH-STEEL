@@ -15,7 +15,7 @@ float Player::GetSpeed() { return speed; }
 
 void Player::Update(float deltaTime, InputSystem &inpSys,
                     const int &screenWidth, const int &screenHeight,
-                    Damage &damage, const Map &map) {
+                    Damage &damage) {
 
   if (inpSys.IsReleasedKeyName("damage")) {
     damage.TakeDamage(10, DamageType::Physical, health);
@@ -42,9 +42,7 @@ void Player::Update(float deltaTime, InputSystem &inpSys,
       GetSpeed() * (inpSys.IsDownKeyName("sprint") ? 2.0f : 1.0f);
   Vector2 velocity = Vector2Scale(movement, movementSpeed * deltaTime);
   Vector2 newPosition = Vector2Add(GetPosition(), velocity);
-  newPosition = map.ClampPosition(newPosition, {64.0f, 64.0f});
-  if (health.GetCurrentHealth() > 0 &&
-      !map.Collides(newPosition, {64.0f, 64.0f})) {
+  if (health.GetCurrentHealth() > 0) {
     SetPosition(newPosition);
   }
   if (movement.x != 0 || movement.y != 0)

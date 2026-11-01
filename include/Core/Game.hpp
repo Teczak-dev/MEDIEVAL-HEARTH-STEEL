@@ -9,7 +9,7 @@
 #include "Gameplay/Damage.hpp"
 #include "Systems/InputSystem.hpp"
 #include "UI/UserInterfaceSystem.hpp"
-#include "Worlds/Map.hpp"
+#include "Worlds/World.hpp"
 #include "raylib.h"
 
 class Game {
@@ -33,15 +33,11 @@ private:
   UserInterfaceSystem uiSys;
   Damage damage;
   Camera2D camera = {0};
-  Map map{"assets/maps/map.json"};
   UIState lastUIState = UI_STATE_MAIN_MENU;
   bool isShutdown = false;
 
-  void UpdateWorldTransition();
-  void FinishWorldTransition();
-  bool worldTransitionActive = false;
-  bool transitionToInterior = false;
-  bool transitionSwitched = false;
-  float transitionTimer = 0.0f;
-  float transitionOpacity = 0.0f;
+  MapData map;
+  int tileSize = 64;
+  Texture2D tileset = {0};
+  int sourceTileSize = 64;
 };

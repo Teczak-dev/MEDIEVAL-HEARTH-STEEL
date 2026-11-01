@@ -1,7 +1,6 @@
 
 #pragma once
 
-#include "Worlds/Map.hpp"
 #include "raylib.h"
 
 enum UIState {
@@ -18,7 +17,7 @@ public:
 
   void Update(float deltaTime);
   void Render(const int &screenWidth, const int &screenHeight, int playerHealth,
-              const Map &map, Vector2 playerPosition);
+              Vector2 playerPosition);
   void RenderMainMenu(const int &screenWidth, const int &screenHeight);
   void RenderPauseMenu(const int &screenWidth, const int &screenHeight);
   UIState GetCurrentState() const;
