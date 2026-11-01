@@ -1,4 +1,5 @@
 #include "Gameplay/Health.hpp"
+#include <algorithm>
 #include <iostream>
 
 Health::Health(int maxHealth, int currentHealth)
