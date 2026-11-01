@@ -15,9 +15,7 @@ Game::Game()
 
 Game::~Game() { Shutdown(); }
 
-void Game::LoadAssets() {
-  map.LoadAssets();
-}
+void Game::LoadAssets() { map.LoadAssets(); }
 
 void Game::Shutdown() {
   if (isShutdown) {
@@ -25,6 +23,25 @@ void Game::Shutdown() {
   }
   map.UnloadAssets();
   isShutdown = true;
+}
+
+void Game::HandleStateTransition(UIState oldState, UIState newState) {
+  if (newState == UI_STATE_GAMEPLAY) {
+    camera.offset = {SCREEN_WIDTH / 2.0f, SCREEN_HEIGHT / 2.0f};
+  } else if (newState == UI_STATE_MAIN_MENU) {
+    camera.offset = {SCREEN_WIDTH / 2.0f, SCREEN_HEIGHT - 200.0f};
+  }
+}
+
+void Game::UpdateCamera() {
+  camera.target = player.GetPosition();
+
+  if (IsKeyDown(KEY_X))
+    camera.zoom = Clamp(camera.zoom + 0.01f, 0.001f, 3.0f);
+  if (IsKeyDown(KEY_Z))
+    camera.zoom = Clamp(camera.zoom - 0.01f, 0.001f, 3.0f);
+  if (IsKeyPressed(KEY_C))
+    camera.zoom = 1.0f;
 }
 
 int Game::GetScreenWidth() const { return SCREEN_WIDTH; }
@@ -36,19 +53,30 @@ void Game::Update(float deltaTime) {
 
   const UIState currentUIState = uiSys.GetCurrentState();
   if (lastUIState != currentUIState) {
+    HandleStateTransition(lastUIState, currentUIState);
     lastUIState = currentUIState;
-    if (currentUIState == UI_STATE_GAMEPLAY) {
-      camera.offset = {SCREEN_WIDTH / 2.0f, SCREEN_HEIGHT / 2.0f};
-    } else if (currentUIState == UI_STATE_MAIN_MENU) {
-      camera.offset = {SCREEN_WIDTH / 2.0f, SCREEN_HEIGHT - 200.0f};
-    }
   }
-
-  if (currentUIState == UI_STATE_GAMEPLAY) {
+  switch (currentUIState) {
+  case UI_STATE_MAIN_MENU:
+    // Handle main menu logic here if needed in the future
+    break;
+  case UI_STATE_GAMEPLAY:
     map.Update(player.GetPosition());
     player.Update(deltaTime, inpSys, SCREEN_WIDTH, SCREEN_HEIGHT, damage);
+    UpdateCamera();
+    break;
+  case UI_STATE_PAUSE_MENU:
+    UpdateCamera();
+    break;
+  case UI_STATE_GAME_OVER:
+  case UI_STATE_INVENTORY:
+  case UI_STATE_CRAFTING:
+  case UI_STATE_DIALOGUE:
+  case UI_STATE_SHOP:
+  case UI_STATE_SETTINGS:
+  default:
+    break;
   }
-
   camera.target = player.GetPosition();
   if (IsKeyDown(KEY_X))
     camera.zoom = Clamp(camera.zoom + 0.01f, 0.0001f, 10.0f);

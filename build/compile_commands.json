@@ -148,12 +148,64 @@
       "-Wno-deprecated-declarations",
       "-c",
       "-o",
-      "obj/x64/Debug/MedievalHearthSteel/UIElements.o",
-      "src/UI/UIElements.cpp"
+      "obj/x64/Debug/MedievalHearthSteel/HUD.o",
+      "src/UI/HUD.cpp"
     ],
     "directory": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/",
-    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/src/UI/UIElements.cpp",
-    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/MedievalHearthSteel/UIElements.o"
+    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/src/UI/HUD.cpp",
+    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/MedievalHearthSteel/HUD.o"
+  },
+  {
+    "arguments": [
+      "clang++",
+      "-MD",
+      "-MP",
+      "-DDEBUG",
+      "-DPLATFORM_DESKTOP",
+      "-DGRAPHICS_API_OPENGL_33",
+      "-Isrc",
+      "-Iinclude",
+      "-Iexternal",
+      "-Ibuild/external/raylib-master/src",
+      "-m64",
+      "-Wshadow",
+      "-g",
+      "-std=c++20",
+      "-Wno-deprecated-declarations",
+      "-c",
+      "-o",
+      "obj/x64/Debug/MedievalHearthSteel/MainMenu.o",
+      "src/UI/MainMenu.cpp"
+    ],
+    "directory": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/",
+    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/src/UI/MainMenu.cpp",
+    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/MedievalHearthSteel/MainMenu.o"
+  },
+  {
+    "arguments": [
+      "clang++",
+      "-MD",
+      "-MP",
+      "-DDEBUG",
+      "-DPLATFORM_DESKTOP",
+      "-DGRAPHICS_API_OPENGL_33",
+      "-Isrc",
+      "-Iinclude",
+      "-Iexternal",
+      "-Ibuild/external/raylib-master/src",
+      "-m64",
+      "-Wshadow",
+      "-g",
+      "-std=c++20",
+      "-Wno-deprecated-declarations",
+      "-c",
+      "-o",
+      "obj/x64/Debug/MedievalHearthSteel/Pause.o",
+      "src/UI/Pause.cpp"
+    ],
+    "directory": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/",
+    "file": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/src/UI/Pause.cpp",
+    "output": "/Users/mikolajsobczak/Dane/Programowanie/MEDIEVAL HEARTH & STEEL/obj/x64/Debug/MedievalHearthSteel/Pause.o"
   },
   {
     "arguments": [

@@ -8,6 +8,11 @@ enum UIState {
   UI_STATE_MAIN_MENU,
   UI_STATE_GAMEPLAY,
   UI_STATE_PAUSE_MENU,
+  UI_STATE_INVENTORY,
+  UI_STATE_CRAFTING,
+  UI_STATE_DIALOGUE,
+  UI_STATE_SHOP,
+  UI_STATE_SETTINGS,
   UI_STATE_GAME_OVER
 };
 
@@ -19,8 +24,6 @@ public:
   void Update(float deltaTime);
   void Render(const int &screenWidth, const int &screenHeight, int playerHealth,
               Vector2 playerPosition);
-  void RenderMainMenu(const int &screenWidth, const int &screenHeight);
-  void RenderPauseMenu(const int &screenWidth, const int &screenHeight);
   UIState GetCurrentState() const;
   bool IsExitRequested() const;
 
@@ -31,4 +34,6 @@ private:
   UIState currentState = UI_STATE_MAIN_MENU;
   bool showMinimap = true;
   bool exitRequested = false;
+
+  // windows and other UI classes
 };

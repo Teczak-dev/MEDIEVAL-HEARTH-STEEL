@@ -121,22 +121,26 @@ OBJECTS :=
 GENERATED += $(OBJDIR)/Chunk.o
 GENERATED += $(OBJDIR)/Damage.o
 GENERATED += $(OBJDIR)/Game.o
+GENERATED += $(OBJDIR)/HUD.o
 GENERATED += $(OBJDIR)/Health.o
 GENERATED += $(OBJDIR)/InputSystem.o
+GENERATED += $(OBJDIR)/MainMenu.o
 GENERATED += $(OBJDIR)/Map.o
+GENERATED += $(OBJDIR)/Pause.o
 GENERATED += $(OBJDIR)/Player.o
-GENERATED += $(OBJDIR)/UIElements.o
 GENERATED += $(OBJDIR)/UserInterfaceSystem.o
 GENERATED += $(OBJDIR)/World.o
 GENERATED += $(OBJDIR)/main.o
 OBJECTS += $(OBJDIR)/Chunk.o
 OBJECTS += $(OBJDIR)/Damage.o
 OBJECTS += $(OBJDIR)/Game.o
+OBJECTS += $(OBJDIR)/HUD.o
 OBJECTS += $(OBJDIR)/Health.o
 OBJECTS += $(OBJDIR)/InputSystem.o
+OBJECTS += $(OBJDIR)/MainMenu.o
 OBJECTS += $(OBJDIR)/Map.o
+OBJECTS += $(OBJDIR)/Pause.o
 OBJECTS += $(OBJDIR)/Player.o
-OBJECTS += $(OBJDIR)/UIElements.o
 OBJECTS += $(OBJDIR)/UserInterfaceSystem.o
 OBJECTS += $(OBJDIR)/World.o
 OBJECTS += $(OBJDIR)/main.o
@@ -218,7 +222,13 @@ $(OBJDIR)/Health.o: src/Gameplay/Health.cpp
 $(OBJDIR)/InputSystem.o: src/Systems/InputSystem.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
-$(OBJDIR)/UIElements.o: src/UI/UIElements.cpp
+$(OBJDIR)/HUD.o: src/UI/HUD.cpp
+	@echo "$(notdir $<)"
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/MainMenu.o: src/UI/MainMenu.cpp
+	@echo "$(notdir $<)"
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/Pause.o: src/UI/Pause.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/UserInterfaceSystem.o: src/UI/UserInterfaceSystem.cpp

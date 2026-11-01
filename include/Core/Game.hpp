@@ -19,8 +19,11 @@ public:
 
   void LoadAssets();
   void Shutdown();
+  void HandleStateTransition(UIState oldState, UIState newState);
+  void UpdateCamera();
   void Update(float deltaTime);
   void Draw();
+
   int GetScreenWidth() const;
   int GetScreenHeight() const;
   bool IsExitRequested() const;
