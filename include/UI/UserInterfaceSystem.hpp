@@ -1,6 +1,7 @@
 
 #pragma once
 
+// Controls interface states, menus, HUD rendering, and UI-related requests.
 #include "raylib.h"
 
 enum UIState {

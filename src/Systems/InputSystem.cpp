@@ -30,14 +30,14 @@ InputSystem::InputSystem() {
     try {
       nlohmann::json data = nlohmann::json::parse(f);
 
-      // 1. Iterujemy po kategoriach (np. "movement", "actions")
+      // 1. Iterate over input categories (e.g., "movement", "actions")
       for (auto &[categoryName, categoryContent] : data.items()) {
 
-        // 2. Wewnątrz kategorii iterujemy po konkretnych akcjach (np. "move_up")
+        // 2. Iterate over actions within each category (e.g., "move_up")
         for (auto &[actionName, keys] : categoryContent.items()) {
           std::vector<int> keyCodes;
 
-          // 3. Iterujemy po tablicy stringów z klawiszami (np. ["W", "UP"])
+          // 3. Convert each key name from the JSON array (e.g., ["W", "UP"])
           for (const auto &key : keys) {
             if (stringToKey.find(key) != stringToKey.end()) {
               keyCodes.push_back(stringToKey[key]);
@@ -56,12 +56,12 @@ InputSystem::InputSystem() {
 InputSystem::~InputSystem() {};
 
 bool InputSystem::IsDownKeyName(const char *name) {
-  // 1. Szukamy akcji w mapie
+  // 1. Find the requested action in the bindings map
   auto it = actionBindings.find(name);
   if (it != actionBindings.end()) {
-    // 2. it->second to nasz wektor klawiszy (std::vector<int>)
+    // 2. Check every key assigned to the action
     for (int keyCode : it->second) {
-      // 3. Sprawdzamy, czy którykolwiek klawisz jest wciśnięty
+      // 3. Return true when any assigned key is held down
       if (IsKeyDown(keyCode)) {
         return true;
       }
@@ -71,12 +71,12 @@ bool InputSystem::IsDownKeyName(const char *name) {
 }
 
 bool InputSystem::IsPressedKeyName(const char *name) {
-  // 1. Szukamy akcji w mapie
+  // 1. Find the requested action in the bindings map
   auto it = actionBindings.find(name);
   if (it != actionBindings.end()) {
-    // 2. it->second to nasz wektor klawiszy (std::vector<int>)
+    // 2. Check every key assigned to the action
     for (int keyCode : it->second) {
-      // 3. Sprawdzamy, czy którykolwiek klawisz został wciśnięty
+      // 3. Return true when any assigned key was pressed
       if (IsKeyPressed(keyCode)) {
         return true;
       }
@@ -86,12 +86,12 @@ bool InputSystem::IsPressedKeyName(const char *name) {
 }
 
 bool InputSystem::IsReleasedKeyName(const char *name) {
-  // 1. Szukamy akcji w mapie
+  // 1. Find the requested action in the bindings map
   auto it = actionBindings.find(name);
   if (it != actionBindings.end()) {
-    // 2. it->second to nasz wektor klawiszy (std::vector<int>)
+    // 2. Check every key assigned to the action
     for (int keyCode : it->second) {
-      // 3. Sprawdzamy, czy którykolwiek klawisz został zwolniony
+      // 3. Return true when any assigned key was released
       if (IsKeyReleased(keyCode)) {
         return true;
       }

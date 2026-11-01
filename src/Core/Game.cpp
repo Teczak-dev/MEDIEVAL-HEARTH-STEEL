@@ -4,7 +4,9 @@
 #include "UI/UserInterfaceSystem.hpp"
 #include "raymath.h"
 
-Game::Game() : player({64.0f, 64.0f}, 200.0f), inpSys(), uiSys(), damage() {
+Game::Game()
+    : player({64.0f, 64.0f}, 200.0f), inpSys(), uiSys(), damage(),
+      map(3, 3, 4, 3, 64, 64) {
   camera.target = player.GetPosition();
   camera.offset = {SCREEN_WIDTH / 2.0f, SCREEN_HEIGHT - 200.0f};
   camera.rotation = 0.0f;
@@ -14,28 +16,20 @@ Game::Game() : player({64.0f, 64.0f}, 200.0f), inpSys(), uiSys(), damage() {
 Game::~Game() { Shutdown(); }
 
 void Game::LoadAssets() {
-  map = LoadMapFromJson("assets/maps/test.json");
-  tileset = LoadTexture("assets/textures/tileset.png");
-  if (tileset.id == 0) {
-    TraceLog(LOG_ERROR, "Could not load tileset: assets/textures/tileset.png");
-  }
+  map.LoadAssets();
 }
 
 void Game::Shutdown() {
   if (isShutdown) {
     return;
   }
-  if (tileset.id != 0) {
-    UnloadTexture(tileset);
-  }
+  map.UnloadAssets();
   isShutdown = true;
 }
 
 int Game::GetScreenWidth() const { return SCREEN_WIDTH; }
 int Game::GetScreenHeight() const { return SCREEN_HEIGHT; }
-bool Game::IsExitRequested() const {
-  return uiSys.IsExitRequested();
-}
+bool Game::IsExitRequested() const { return uiSys.IsExitRequested(); }
 
 void Game::Update(float deltaTime) {
   uiSys.Update(deltaTime);
@@ -51,6 +45,7 @@ void Game::Update(float deltaTime) {
   }
 
   if (currentUIState == UI_STATE_GAMEPLAY) {
+    map.Update(player.GetPosition());
     player.Update(deltaTime, inpSys, SCREEN_WIDTH, SCREEN_HEIGHT, damage);
   }
 
@@ -71,15 +66,14 @@ void Game::Draw() {
   BeginDrawing();
   ClearBackground(BLACK);
 
-  // RYSOWANIE W WSPÓŁRZĘDNYCH Świata (world coordinates)
+  // Draw the world using world coordinates.
   BeginMode2D(camera);
-  // world rendering
-  DrawMap(map, tileSize, tileset, sourceTileSize);
-  // player rendering
+  map.Draw();
+  // Player rendering
   player.Draw();
   EndMode2D();
 
-  // interface
+  // User interface
   uiSys.Render(SCREEN_WIDTH, SCREEN_HEIGHT, player.health.GetCurrentHealth(),
                player.GetPosition());
 

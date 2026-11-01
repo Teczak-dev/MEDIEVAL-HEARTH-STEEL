@@ -1,5 +1,6 @@
 #pragma once
 
+// Represents the player character, including movement, health, and rendering.
 #include "Gameplay/Damage.hpp"
 #include "Gameplay/Health.hpp"
 #include "Systems/InputSystem.hpp"

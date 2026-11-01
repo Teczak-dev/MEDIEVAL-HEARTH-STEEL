@@ -1,5 +1,6 @@
 #pragma once
 
+// Maps named actions to keyboard input and exposes their current state.
 #include "raylib.h"
 #include <nlohmann/json.hpp>
 #include <string>

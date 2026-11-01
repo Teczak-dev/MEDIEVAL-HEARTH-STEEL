@@ -6,7 +6,7 @@ UserInterfaceSystem::~UserInterfaceSystem() {}
 
 void UserInterfaceSystem::Update(float deltaTime) {
 
-  // LOGIC
+  // Input and state transition logic
   if (currentState == UI_STATE_MAIN_MENU) {
     if (IsKeyPressed(KEY_ENTER)) {
       currentState = UI_STATE_GAMEPLAY;
@@ -38,17 +38,17 @@ void UserInterfaceSystem::Render(const int &screenWidth,
   if (currentState == UI_STATE_MAIN_MENU)
     RenderMainMenu(screenWidth, screenHeight);
   else if (currentState == UI_STATE_GAMEPLAY) {
-    // UPPER LEFT CORNER
+    // Upper-left corner
     DrawRectangle(10, 10, 280, 80, Fade(BLACK, 0.6f));
     DrawRectangleLines(10, 10, 280, 80, GOLD);
     DrawText("Medieval Hearth & Steel", 20, 20, 18, GOLD);
     DrawFPS(20, 65);
 
-    // BOTTOM LEFT CORNER ( PLAYER HEALTH BAR )
+    // Bottom-left corner: player health bar
     DrawRectangle(5, screenHeight - 55, 210, 40, BLACK);
     DrawRectangle(10, screenHeight - 50, playerHealth * 2, 30, RED);
 
-    // BOTTOM CENTER
+    // Bottom-center status text
     DrawText("Work in progress...", screenWidth / 2 - 100, screenHeight - 20,
              16, RAYWHITE);
   } else if (currentState == UI_STATE_PAUSE_MENU)

@@ -9,7 +9,7 @@
 #include "Gameplay/Damage.hpp"
 #include "Systems/InputSystem.hpp"
 #include "UI/UserInterfaceSystem.hpp"
-#include "Worlds/World.hpp"
+#include "Worlds/Map.hpp"
 #include "raylib.h"
 
 class Game {
@@ -36,8 +36,5 @@ private:
   UIState lastUIState = UI_STATE_MAIN_MENU;
   bool isShutdown = false;
 
-  MapData map;
-  int tileSize = 64;
-  Texture2D tileset = {0};
-  int sourceTileSize = 64;
+  Map map;
 };

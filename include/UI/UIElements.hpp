@@ -1,7 +1,6 @@
-
-
 #pragma once
 
+// Provides reusable user-interface controls and visual elements.
 class UIElements {
 public:
   UIElements();
